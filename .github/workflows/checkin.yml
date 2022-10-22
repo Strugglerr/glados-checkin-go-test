@@ -1,0 +1,26 @@
+name: GLADOS Checkin
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  schedule:
+    - cron: 01 16 * * *
+    # UTC: 16:01
+    # CST: 00:01
+    # Check in every day
+jobs:
+  CheckIn:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Go
+      uses: actions/setup-go@v3
+      with:
+        go-version: 1.19
+    - name: Build
+      run: go build -o main main.go
+    - name: Run
+      run: ./main
+      env:
+        COOKIE: ${{ secrets.COOKIE }}
