@@ -4,11 +4,11 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-  schedule:
-    - cron: 01 16 * * *
-    # UTC: 16:01
-    # CST: 00:01
-    # Check in every day
+  # schedule:
+  #   - cron: 01 16 * * *
+  #   # UTC: 16:01
+  #   # CST: 00:01
+  #   # Check in every day
 jobs:
   CheckIn:
     runs-on: ubuntu-latest

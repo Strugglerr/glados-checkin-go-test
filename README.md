@@ -1,17 +1,34 @@
 # Glados-CheckIn
 
 * GLADOS Automatic Check-in program ( Golang Version )
-* Version: 1.0
+* Version: 1.1
 * Update time：2022.10.23
 * Author: [xiabee](https://github.com/xiabee)
 
 
 
-## 每日自动签到
+## 签到功能
 
 - 基于 [Github Actions](https://github.com/features/actions)
 
-* 北京时间 0:01开始执行（UTC时间 16:01）
+* 在 `push` 和 `pr` 的时候自动执行
+* 基于`Github Actions` 的签到功能有被`Github` 封禁仓库的风险，因此暂时关闭了每日自动签到
+* 如需开启每日自动执行，将`.github/workflows/checkin.yml` 中的 `schedule` 字段取消注释
+
+```yml
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  schedule:
+    - cron: 01 16 * * *
+    # UTC: 16:01
+    # CST: 00:01
+    # Check in every day
+```
+
+
 
 
 
@@ -53,7 +70,7 @@
 ![image.png](https://tva1.sinaimg.cn/large/0084b03xgy1h7f48qvsvlj32na10ah15.jpg)
 
 * 在 `push` 和 `pull request`的时候会出发执行
-* 每日`0:01` 自动执行
+* 开启每日自动执行：将`.github/workflows/checkin.yml` 中的 `schedule` 字段取消注释
 
 ```yml
 on:
@@ -67,6 +84,8 @@ on:
     # CST: 00:01
     # Check in every day
 ```
+
+
 
 
 
