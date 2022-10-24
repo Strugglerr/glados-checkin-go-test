@@ -2,7 +2,7 @@
 
 * GLADOS Automatic Check-in program ( Golang Version )
 * Version: 1.2
-* Update time：2022.10.23
+* Update time：2022.10.25
 * Author: [xiabee](https://github.com/xiabee)
 
 
