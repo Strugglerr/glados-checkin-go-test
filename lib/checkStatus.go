@@ -16,7 +16,7 @@ type Response struct {
 	Data Data `json:"data"`
 }
 
-func CheckStatus(url string, cookie string) {
+func CheckStatus(url string, cookie string) string {
 
 	glados, err := http.NewRequest(http.MethodGet, url, nil)
 	if err != nil {
@@ -41,4 +41,6 @@ func CheckStatus(url string, cookie string) {
 	}
 	fmt.Println(basket.Data.Email)
 	fmt.Println(basket.Data.LeftDays)
+	msg := "Email: " + basket.Data.Email + "\n" + "Left days: " + basket.Data.LeftDays
+	return msg
 }

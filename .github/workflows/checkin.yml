@@ -24,3 +24,4 @@ jobs:
       run: ./main
       env:
         COOKIE: ${{ secrets.COOKIE }}
+        TOKEN: ${{secrets.TOKEN}}

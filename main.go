@@ -14,6 +14,9 @@ func main() {
 	cookie := os.Getenv("COOKIE")
 	// use env or git action secrets
 
-	lib.CheckIn(host+checkInUrl, cookie)
-	lib.CheckStatus(host+checkInStatusUrl, cookie)
+	msg1 := lib.CheckIn(host+checkInUrl, cookie)
+	msg2 := lib.CheckStatus(host+checkInStatusUrl, cookie)
+	msg := msg1 + "\n" + msg2
+	lib.Push(msg)
+	// push message by pushplus(https://www.pushplus.plus/)
 }

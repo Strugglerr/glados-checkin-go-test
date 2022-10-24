@@ -8,14 +8,17 @@ import (
 	"strings"
 )
 
-func CheckIn(url string, cookie string) {
+func CheckIn(url string, cookie string) string {
 	type Response struct {
 		Code    int    `json:"code"`
 		Message string `json:"message"`
 	}
+	msg := "Check in Failed! Check your Cookie!"
+	// if cookie is wrong
 
 	token := "{\"token\":\"glados.network\"}"
 	// request body, token is necessary
+
 	glados, err := http.NewRequest(http.MethodPost, url, strings.NewReader(token))
 	if err != nil {
 		panic(err)
@@ -40,8 +43,7 @@ func CheckIn(url string, cookie string) {
 	if err != nil {
 		fmt.Println(err)
 	}
+	msg = basket.Message
 	fmt.Println(basket.Message)
-	if basket.Code == -2 {
-		fmt.Println("Check your Cookie!")
-	}
+	return msg
 }
