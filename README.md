@@ -11,6 +11,7 @@
 
 * 暂时关闭 `Git Action` 自动签到功能，防止仓库被封禁（如需打开请查看 `签到功能` 板块）
 * 增加 [pushplus](https://pushplus.plus/) 自动推送功能
+* 基于云函数签到：https://github.com/xiabee/aws-glados-checkin
 
 
 
